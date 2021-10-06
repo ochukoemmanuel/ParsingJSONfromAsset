@@ -1,0 +1,27 @@
+{
+	"users": [
+		{
+			"id": "1001",
+			"name": "Max Jaden",
+			"email": "Max@maxmail.com",
+			"gender": "male",
+			"contact": {
+				"mobile": "+112233445566",
+				"home": "22 334455",
+				"office": "66 666666"
+			}
+		},
+
+		{
+			"id": "1011",
+			"name": "Jaxen Tem",
+			"email": "Jaxen@Tem.com",
+			"gender": "male",
+			"contact": {
+				"mobile": "+55 6667788",
+				"home": "88 7776666",
+				"office": "998 888888"
+			}
+		}
+	]
+}
