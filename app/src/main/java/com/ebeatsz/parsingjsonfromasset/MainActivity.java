@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -33,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             JSONObject obj = new JSONObject(loadJSONfromAssets());
-        } catch (IOException e){
+            JSONArray userArray = obj.getJSONArray("users");
+
+            for (int i = 0; i < userArray.length(); i++){
+                JSONObject userDetail = userArray.getJSONObject(i);
+
+                personName.add(userDetail.getString("name"));
+                emailIds.add(userDetail.getString("email"));
+            }
+        } catch (JSONException e){
             e.printStackTrace();
         }
 
