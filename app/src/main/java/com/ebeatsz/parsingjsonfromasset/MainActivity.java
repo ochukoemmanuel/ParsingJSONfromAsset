@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
@@ -42,10 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
                 personName.add(userDetail.getString("name"));
                 emailIds.add(userDetail.getString("email"));
+
+                JSONObject contact = userDetail.getJSONObject("contact");
+
+                mobileNumbers.add(contact.getString("mobile"));
             }
         } catch (JSONException e){
             e.printStackTrace();
         }
+
+        CustomAdapter customAdapter = new CustomAdapter(personName, emailIds, mobileNumbers, MainActivity.this);
+        recyclerView.setAdapter(customAdapter);
 
     }
 
